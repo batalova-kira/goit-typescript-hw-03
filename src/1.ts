@@ -5,15 +5,15 @@
 */
 
 class Student {
-  public name: string;
-  public age: number;
-  public grade: string;
-
-  constructor(name: string, age: number, grade: string) {
+  
+  constructor(public name: string, public age: number,public grade: string) {
     this.name = name;
     this.age = age;
     this.grade = grade;
   }
 }
 
-export {};
+export { };
+
+// const student = new Student('Bob', 23, 'bachelor')
+// console.log(student);
