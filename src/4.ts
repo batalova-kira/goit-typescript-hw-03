@@ -9,23 +9,23 @@ class Key {
 }
 
 class Person {
-    constructor(private key: Key) { this.key = key;}
+    constructor(private key: Key) { }
     getKey(): Key {
         return this.key;
 }
 }
     
 abstract class House {
-    protected door:boolean= false;
+    protected door:boolean;
     protected key: Key;
-    private tenants: Person[] = [];
+    private tenants: Person[];
 
-    constructor(key: Key) { this.key = key; }
+    constructor(key: Key) {  }
 
-    comeIn(key: Key, door:boolean) {
-        const tenant = new Person(key);
+    comeIn(person: Person) {
+        
         if (this.door) {
-            this.tenants.push(tenant);
+            this.tenants.push(person);
             console.log('Welcome to the home!');
         }
         else {
@@ -49,15 +49,15 @@ class MyHouse extends House {
 }
 
 
-
-// const house = new MyHouse(key);
-// const person = new Person(key);
-// console.log(person);
-
-
-// house.openDoor(person.getKey());
-
-// house.comeIn(person);
+const key = new Key(120223);
+const house = new MyHouse(key);
+const person = new Person(key);
+console.log(person);
 
 
-// export {};
+house.openDoor(person.getKey());
+
+house.comeIn(person);
+
+
+export {};
